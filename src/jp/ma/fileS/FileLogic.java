@@ -10,19 +10,23 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class FileLogic {
+public class FileLogic implements FileLogicImpl {
 	/*
 	 * 読んだものをどう処理して、どこに何を書き出すか
 	 */
 	private String input;
 	private String output;
 
+	public FileLogic(String input){
+		this.input = input;
+	}
+
 	public FileLogic(String input, String output) {
 		this.input = input;
 		this.output = output;
 	}
 
-	int[] reader(int r) {
+	public int[] reader(int r) {
 
 		BufferedReader br = null;
 		List<Integer> list = new ArrayList<>();
@@ -63,7 +67,7 @@ public class FileLogic {
 		return ary;
 	}
 
-	void writer(int[] ary) {
+	public void writer(int[] ary) {
 
 		BufferedWriter bw = null;
 
