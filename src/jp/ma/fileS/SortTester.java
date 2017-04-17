@@ -4,7 +4,7 @@ public class SortTester {
 	/*
 	 * a[i]よりa[i+1]の方が大きかったら正解 を一個ずつ進めていく
 	 */
-	String tester(int[] ary, int index) {
+	private static String tester(int[] ary, int index) {
 		String result = "false";
 
 		while (index < ary.length - 1) {
@@ -27,13 +27,12 @@ public class SortTester {
 
 		long start = System.currentTimeMillis();
 
-		SortTester ster = new SortTester();
 		int r = 0;
 
 		for (int n = 1; n <= 10; n++) {
 			// 読み込みロジックはFileLogicクラスから
 			int[] ary = new FileLogic("").reader(r);
-			String result = ster.tester(ary, 0);
+			String result = tester(ary, 0);
 			System.out.println(result);
 			r += 200000000;
 		}
