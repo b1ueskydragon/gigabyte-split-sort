@@ -12,8 +12,7 @@ public class SortTester {
 				result = "true";
 				index++;
 			} else {
-				StringBuilder sb = new StringBuilder();
-				result = (sb.append(index).append("番と").append(index + 1).append("番要素のところがfalse")).toString();
+				result = "" + index + "番と" + (index + 1) + "番要素のところがfalse";
 				break; // 修正ロジック? 優しすぎる?(笑)
 			}
 		}
