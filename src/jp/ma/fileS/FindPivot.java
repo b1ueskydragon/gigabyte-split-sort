@@ -25,19 +25,24 @@ public class FindPivot {
 		int ret = -1;
 		// スタート
 
-		while (k <= max && ary[min] >= ary[k]) {
+		// 全要素が同じな場合以外の条件を定義すればOKかも
+		while (k <= max && ary[k] <= ary[min]) {
 
 			if (ary[min] < ary[k]) {
-				if (ary[k] > pivot)
+				if (pivot < ary[k])
 					ret = k;
 				else
 					ret = min;
+
 			} else {
-				k++;
+					k++;
 			}
+
 		}
 
-		return ret = k;
+		return ret;
+		// return ret = k;
+
 	}
 
 	/*
@@ -45,14 +50,24 @@ public class FindPivot {
 	 */
 	public static void main(String[] args) {
 
-		//int[] ary = { 3, 2, 4, 5, 6 };
-		int[] ary2 = { 9, 4, 2, 54, 75, 67, 8, 98 };
+		// int[] ary = { 3, 2, 4, 5, 6 };
+		int[] ary2 = { 9, 8, 7, 6, 5, 1, 3 };
 
-		System.out.println(new FindPivot().findLogic(ary2, 0, ary2.length - 1));
+		int result_inx = new FindPivot().findLogic(ary2, 0, ary2.length - 1);
 
-		int result = ary2[new FindPivot().findLogic(ary2, 0, ary2.length - 1)];
+		System.out.println(result_inx);
+
+		int result = 0;
+		if (result_inx == -1) {
+			result = -1;
+		} else {
+			result = ary2[result_inx];
+		}
+
 		System.out.println(result);
+
 		System.out.println("------");
+
 		for (int a : new QuickSortLogic().quickSort(ary2, 0, ary2.length - 1)) {
 
 			System.out.println(a);
