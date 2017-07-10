@@ -9,14 +9,19 @@ public class QuickSortLogic {
 		ary[inxB] = box;
 	}
 
+	/**
+	 *
+	 * @param ary 配列
+	 * @param left 分割すべき区間の先頭要素のindex
+	 * @param right 分割すべき区間の末尾要素のindex
+	 * @return
+	 */
 	int[] quickSort(int[] ary, int left, int right) {
 		/*
 		 * すべて要素そのものよりインデックスで扱う意識を持つ (まずパラメーターの受け取りから)
 		 */
 		int cl = left;
 		int cr = right;
-		// インデックスを「とっておく」
-		// 右辺にとっておいて、左辺が動く
 
 		int center = ary[(cl + cr) / 2];
 		// 比較対象は「要素」そのもの（扱いづらいからインデックスで）
