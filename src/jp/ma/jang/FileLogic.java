@@ -1,5 +1,5 @@
 
-package jp.ma.fileS;
+package jp.ma.jang;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;

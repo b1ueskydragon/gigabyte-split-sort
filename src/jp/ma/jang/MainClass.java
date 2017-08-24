@@ -1,7 +1,7 @@
 
-package jp.ma.fileS;
+package jp.ma.jang;
 
-import static jp.ma.fileS.FilePath.*;
+import static jp.ma.jang.FilePath.*;
 
 public class MainClass {
 

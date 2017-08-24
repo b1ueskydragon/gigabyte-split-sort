@@ -1,6 +1,6 @@
-package jp.ma.fileS;
+package jp.ma.jang;
 
-import static jp.ma.fileS.FilePath.RESULT_PATH;
+import static jp.ma.jang.FilePath.RESULT_PATH;
 
 public class SortTester {
 	/*

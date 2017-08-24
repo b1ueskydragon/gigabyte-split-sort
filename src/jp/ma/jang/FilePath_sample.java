@@ -1,4 +1,4 @@
-package jp.ma.fileS;
+package jp.ma.jang;
 
 public class FilePath_sample {
 

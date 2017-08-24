@@ -1,4 +1,4 @@
-package jp.ma.fileS;
+package jp.ma.jang;
 
 /*
  * (本)Fundamental Information Technology Engineer Examination PM/Algorithm
