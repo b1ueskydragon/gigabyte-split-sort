@@ -5,13 +5,16 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 
+import static jp.ma.fileS.FilePath.RESULT_PATH;
+
 public class CheckSortAsc {
 	private static final String target_directory
 	= "";
 
 	public static void main(String[] args) {
 		long start = System.currentTimeMillis();
-		System.out.println(chechSort(args[0]));
+		//System.out.println(chechSort(args[0]));
+		System.out.println(chechSort(RESULT_PATH));
 		// System.out.println(chechSort(target_directory));
 		long end = System.currentTimeMillis();
 		System.out.println((end - start) + "ms");

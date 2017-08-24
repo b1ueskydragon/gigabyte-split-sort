@@ -27,25 +27,37 @@ public class QuickSortLogic {
 		// 比較対象は「要素」そのもの（扱いづらいからインデックスで）
 		/** centerで表したいのは真ん中のインデックスの中身 **/
 
-		/* 動きを考えながら変数設定、条件分岐 */
-		do {
-			/*
-			 * 場合による判別 ← if-elseでなくif(一つのifが終わったら次のif) 要素そのものの大きさを比較するブロック
-			 */
-			while (ary[cl] < center)
-				cl++;
-			// 終わるまでカーソル進ませる、だからifでなくwhile
-			while (center < ary[cr])
-				cr--;
+//		/* 動きを考えながら変数設定、条件分岐 */
+//		do {
+//			/*
+//			 * 場合による判別 ← if-elseでなくif(一つのifが終わったら次のif) 要素そのものの大きさを比較するブロック
+//			 */
+//			while (ary[cl] < center)
+//				cl++;
+//			// 終わるまでカーソル進ませる、だからifでなくwhile
+//			while (center < ary[cr])
+//				cr--;
+//
+//			if (cl <= cr)
+//				swap(ary, cl++, cr--);
+//			// 後置インクリメント（ブロック通ってからインクり）
+//			// 本当はこの時点で cl > cr
+//
+//		} while (cl <= cr);
+//		// cl = cr 必ず一度は交換
+//		// cl > cr になった時点でdo-while抜け出すロジック
 
+		while (true) {
+			while (ary[cl] < center)
+				cl ++;
+			while (ary[cr] > center)
+				cr --;
 			if (cl <= cr)
 				swap(ary, cl++, cr--);
-			// 後置インクリメント（ブロック通ってからインクり）
-			// 本当はこの時点で cl > cr
 
-		} while (cl <= cr);
-		// cl = cr 必ず一度は交換
-		// cl > cr になった時点でdo-while抜け出すロジック
+			if (cl > cr)
+				break;
+		}
 
 		/*
 		 * 抜け出したら、すぐ再帰(ifで二つにフィルタリング)
