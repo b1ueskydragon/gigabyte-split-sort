@@ -43,8 +43,6 @@ public class MainClass {
 		}
 
 		long end = System.currentTimeMillis();
-
-		StringBuilder sba = new StringBuilder();
-		System.out.println(sba.append((end - start) / 1000).append("秒"));
+		System.out.println((end - start) / 1000 + "秒");
 	}
 }

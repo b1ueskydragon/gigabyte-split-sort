@@ -22,7 +22,6 @@ public class QuickSortLogic {
 		 */
 		int cl = left;
 		int cr = right;
-
 		int center = ary[(cl + cr) / 2];
 		// 比較対象は「要素」そのもの（扱いづらいからインデックスで）
 		/** centerで表したいのは真ん中のインデックスの中身 **/
@@ -69,5 +68,4 @@ public class QuickSortLogic {
 
 		return ary;
 	}
-
 }

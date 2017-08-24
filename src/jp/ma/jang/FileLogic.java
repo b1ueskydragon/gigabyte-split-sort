@@ -27,7 +27,6 @@ public class FileLogic implements FileLogicImpl {
 	}
 
 	public int[] reader(int r) {
-
 		BufferedReader br = null;
 		List<Integer> list = new ArrayList<>();
 		String ln = null;
@@ -44,16 +43,13 @@ public class FileLogic implements FileLogicImpl {
 		} catch (NumberFormatException | IOException e) {
 			e.printStackTrace();
 		} finally {
-
 			try {
 				if (br != null)
 					br.close();
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
-
 		}
-
 		/*
 		 * List<Integer>→int[]
 		 */
@@ -63,7 +59,6 @@ public class FileLogic implements FileLogicImpl {
 			ary[index] = i;
 			index++;
 		}
-
 		return ary;
 	}
 
@@ -82,16 +77,12 @@ public class FileLogic implements FileLogicImpl {
 		} catch (IOException e) {
 			e.printStackTrace();
 		} finally {
-
 			try {
 				if (bw != null)
 					bw.close();
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
-
 		}
-
 	}
-
 }

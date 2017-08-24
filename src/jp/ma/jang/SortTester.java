@@ -21,7 +21,6 @@ public class SortTester {
 				break; // 修正ロジック? 優しすぎる?(笑)
 			}
 		}
-
 		return result;
 	}
 
@@ -31,7 +30,6 @@ public class SortTester {
 	public static void main(String[] args) {
 
 		long start = System.currentTimeMillis();
-
 		int r = 0;
 
 		for (int n = 1; n <= 10; n++) {
@@ -43,9 +41,6 @@ public class SortTester {
 		}
 
 		long end = System.currentTimeMillis();
-
 		System.out.println((end - start) / 1000 + "秒");
-
 	}
-
 }
