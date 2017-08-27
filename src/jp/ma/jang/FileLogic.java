@@ -26,7 +26,7 @@ public class FileLogic implements FileLogicImpl {
 		this.output = output;
 	}
 
-	public int[] reader(int r) {
+	public int[] reader(int r, int d) {
 		BufferedReader br = null;
 		List<Integer> list = new ArrayList<>();
 		String ln = null;
@@ -36,7 +36,7 @@ public class FileLogic implements FileLogicImpl {
 
 			while ((ln = br.readLine()) != null) {
 				int line = Integer.parseInt(ln);
-				if (line <= 200000000 + r && r < line)
+				if (line <= d + r && r < line)
 					list.add(line);
 			}
 

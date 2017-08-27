@@ -34,7 +34,7 @@ public class SortTester {
 
 		for (int n = 1; n <= 10; n++) {
 			// 読み込みロジックはFileLogicクラスから
-			int[] ary = new FileLogic(RESULT_PATH).reader(r);
+			int[] ary = new FileLogic(RESULT_PATH).reader(r, DIVISION_RANGE); // TODO わけない
 			String result = tester(ary, 0);
 			System.out.println(result);
 			r += DIVISION_RANGE;

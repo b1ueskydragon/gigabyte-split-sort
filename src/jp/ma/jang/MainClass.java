@@ -33,7 +33,7 @@ public class MainClass {
 		// nは回数
 		for (int n = 1; n <= 10; n++) {
 			// System.out.println(r);
-			int[] ary = fl.reader(r);
+			int[] ary = fl.reader(r, DIVISION_RANGE);
 			qs.quickSort(ary, 0, ary.length - 1);
 			fl.writer(ary);
 			ary = null;
