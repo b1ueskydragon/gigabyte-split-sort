@@ -23,15 +23,15 @@ public class App {
     FileLogic fl = new FileLogic(input, output);
     QuickSortLogic qs = new QuickSortLogic();
 
-    int r = 0;
+    int branch = 0;
 
     for (int n = 1; n <= SPLIT_LINE; n++) {
-      int[] ary = fl.reader(r, DIVISION_RANGE);
+      int[] ary = fl.read(branch, DIVISION_RANGE);
       qs.quickSort(ary, 0, ary.length - 1);
-      fl.writer(ary);
+      fl.write(ary);
       ary = null; // GC
 
-      r += DIVISION_RANGE;
+      branch += DIVISION_RANGE;
       System.out.println(n + " th");
     }
 

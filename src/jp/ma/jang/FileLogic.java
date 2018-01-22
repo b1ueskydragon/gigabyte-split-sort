@@ -22,7 +22,7 @@ public class FileLogic implements FileLogicImpl {
     this.output = output;
   }
 
-  public int[] reader(int r, int d) {
+  public int[] read(int branch, int division) {
     BufferedReader br = null;
     List<Integer> list = new ArrayList<>();
 
@@ -33,7 +33,7 @@ public class FileLogic implements FileLogicImpl {
 
       while ((ln = br.readLine()) != null) {
         int line = Integer.parseInt(ln);
-        if (line <= d + r && r < line)
+        if (line <= division + branch && branch < line)
           list.add(line);
       }
 
@@ -51,7 +51,7 @@ public class FileLogic implements FileLogicImpl {
     return ConvertIntegerListToAry(list);
   }
 
-  public void writer(int[] ary) {
+  public void write(int[] ary) {
     BufferedWriter bw = null;
 
     try {
