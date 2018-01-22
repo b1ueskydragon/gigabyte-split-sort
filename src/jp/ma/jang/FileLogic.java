@@ -10,16 +10,12 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+import static jp.ma.jang.Utility.*;
+
 public class FileLogic implements FileLogicImpl {
-  /*
-   * 読んだものをどう処理して、どこに何を書き出すか
-   */
+
   private String input;
   private String output;
-
-  public FileLogic(String input) {
-    this.input = input;
-  }
 
   public FileLogic(String input, String output) {
     this.input = input;
@@ -29,7 +25,8 @@ public class FileLogic implements FileLogicImpl {
   public int[] reader(int r, int d) {
     BufferedReader br = null;
     List<Integer> list = new ArrayList<>();
-    String ln = null;
+
+    String ln;
 
     try {
       br = new BufferedReader(new FileReader(new File(this.input)));
@@ -50,24 +47,15 @@ public class FileLogic implements FileLogicImpl {
         e.printStackTrace();
       }
     }
-    /*
-     * List<Integer>→int[]
-		 */
-    int[] ary = new int[list.size()];
-    int index = 0;
-    for (Integer i : list) {
-      ary[index] = i;
-      index++;
-    }
-    return ary;
+
+    return ConvertIntegerListToAry(list);
   }
 
   public void writer(int[] ary) {
     BufferedWriter bw = null;
 
     try {
-      bw = new BufferedWriter(new FileWriter(new File(this.output), true));
-      // 引き続けて書き出すパラメータ
+      bw = new BufferedWriter(new FileWriter(new File(this.output), true)); // 続けて書き出す
 
       for (int s : ary) {
         bw.write(Integer.toString(s) + System.getProperty("line.separator"));

@@ -1,4 +1,4 @@
-package jp.practice;
+package jp.pra;
 
 public class QuickSort {
   /**

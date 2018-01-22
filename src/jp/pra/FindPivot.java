@@ -1,4 +1,4 @@
-package jp.practice;
+package jp.pra;
 
 import jp.ma.jang.QuickSortLogic;
 

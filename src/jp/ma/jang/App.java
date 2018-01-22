@@ -2,13 +2,11 @@
 package jp.ma.jang;
 
 import static jp.ma.jang.FilePath.*;
+import static jp.ma.jang.Utility.*;
 
-public class MainClass {
-
-  private final static Integer DIVISION_RANGE = 200_000_000;
+public class App {
 
   public static void main(String[] args) {
-
     long start = System.currentTimeMillis();
 
     String input;
@@ -23,25 +21,21 @@ public class MainClass {
     }
 
     FileLogic fl = new FileLogic(input, output);
-
     QuickSortLogic qs = new QuickSortLogic();
 
+    int r = 0;
 
-    //10回繰り返し
-    int r = 0; // 基準値
-    // nは回数
-    for (int n = 1; n <= 10; n++) {
-      // System.out.println(r);
+    for (int n = 1; n <= SPLIT_LINE; n++) {
       int[] ary = fl.reader(r, DIVISION_RANGE);
       qs.quickSort(ary, 0, ary.length - 1);
       fl.writer(ary);
-      ary = null;
+      ary = null; // GC
 
       r += DIVISION_RANGE;
-      System.out.println(n + "回目");
+      System.out.println(n + " th");
     }
 
     long end = System.currentTimeMillis();
-    System.out.println((end - start) / 1000 + "秒");
+    System.out.println((end - start) / 1000 + " second");
   }
 }

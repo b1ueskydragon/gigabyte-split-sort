@@ -1,7 +1,6 @@
 package jp.ma.jang;
 
 public class FilePath_sample {
-
   // パスその①
   public static final String TARGET_PATH = "";
   public static final String RESULT_PATH = "";
