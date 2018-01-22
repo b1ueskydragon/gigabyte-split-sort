@@ -1,4 +1,4 @@
-package jp.ma.tester;
+package jp.ma.jang.check;
 
 
 import java.io.BufferedReader;
@@ -8,12 +8,12 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-import static jp.ma.jang.FilePath.RESULT_PATH;
+import static jp.ma.jang.file.FilePath.RESULT_PATH;
 
 /**
  * a[i] より a[i+1] の方が大きい場合のみ, 一個ずつ進めていくアルゴリズム
  */
-public class SortTester { // TODO 続けて改良する
+public class SortChecker { // TODO 続けて改良する
 
   /**
    * ソートされていないインデックスがある場合, 教示後終了する
@@ -44,7 +44,7 @@ public class SortTester { // TODO 続けて改良する
     try {
       br = new BufferedReader(new FileReader(new File(RESULT_PATH)));
 
-      while ((ln = br.readLine()) != null) {
+      while ((ln = br.readLine()) != null) { // TODO そもそもここを改良
         int line = Integer.parseInt(ln);
         buff.add(line);
 

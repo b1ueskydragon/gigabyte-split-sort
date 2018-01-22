@@ -1,6 +1,6 @@
 package jp.pra;
 
-public class QuickSort {
+public class QuickSort_ {
   /**
    * 配列の要素を相互交換する
    *

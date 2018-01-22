@@ -1,6 +1,6 @@
 package jp.pra;
 
-import jp.ma.jang.QuickSortLogic;
+import jp.ma.jang.sort.QuickSort;
 
 /*
  * (本)Fundamental Information Technology Engineer Examination PM/Algorithm
@@ -59,7 +59,7 @@ public class FindPivot {
     System.out.println(result);
     System.out.println("------");
 
-    for (int a : new QuickSortLogic().quickSort(ary2, 0, ary2.length - 1)) {
+    for (int a : new QuickSort().quickSort(ary2, 0, ary2.length - 1)) {
       System.out.println(a);
     }
   }

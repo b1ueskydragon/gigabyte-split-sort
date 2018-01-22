@@ -1,4 +1,4 @@
-package jp.ma.jang;
+package jp.ma.jang.file;
 
 /**
  * 読んだものをどう処理して, どこに何を書き出すか.

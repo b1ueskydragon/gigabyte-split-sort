@@ -1,8 +1,11 @@
 
 package jp.ma.jang;
 
-import static jp.ma.jang.FilePath.*;
-import static jp.ma.jang.Utility.*;
+import jp.ma.jang.file.FileLogic;
+import jp.ma.jang.sort.QuickSort;
+
+import static jp.ma.jang.file.FilePath.*;
+import static jp.ma.jang.util.Utility.*;
 
 public class App {
 
@@ -21,7 +24,7 @@ public class App {
     }
 
     FileLogic fl = new FileLogic(input, output);
-    QuickSortLogic qs = new QuickSortLogic();
+    QuickSort qs = new QuickSort();
 
     int branch = 0;
 

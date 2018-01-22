@@ -1,11 +1,11 @@
-package jp.ma.tester;
+package jp.ma.maCheck;
 
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 
-import static jp.ma.jang.FilePath.RESULT_PATH;
+import static jp.ma.jang.file.FilePath.RESULT_PATH;
 
 public class CheckSortAsc {
   private static final String target_directory

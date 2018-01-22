@@ -1,7 +1,7 @@
 
-package jp.ma.jang;
+package jp.ma.jang.sort;
 
-public class QuickSortLogic {
+public class QuickSort {
   /**
    * 配列の要素を相互交換する
    *

@@ -1,4 +1,4 @@
-package jp.ma.jang;
+package jp.ma.jang.file;
 
 public class FilePath_sample {
   // パスその①

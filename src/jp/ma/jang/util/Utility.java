@@ -1,4 +1,4 @@
-package jp.ma.jang;
+package jp.ma.jang.util;
 
 import java.util.List;
 

@@ -1,5 +1,5 @@
 
-package jp.ma.jang;
+package jp.ma.jang.file;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -10,7 +10,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-import static jp.ma.jang.Utility.*;
+import static jp.ma.jang.util.Utility.*;
 
 public class FileLogic implements FileLogicImpl {
 
