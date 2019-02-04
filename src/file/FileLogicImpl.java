@@ -31,7 +31,7 @@ public class FileLogicImpl implements FileLogic {
       e.printStackTrace();
     }
 
-    return toIntArray(nums);
+    return nums.stream().mapToInt(n -> n).toArray();
   }
 
   public void write(int[] nums) {
@@ -44,18 +44,5 @@ public class FileLogicImpl implements FileLogic {
     } catch (IOException e) {
       e.printStackTrace();
     }
-  }
-
-  /**
-   * Integer list to int array
-   *
-   * @param list given list
-   * @return array
-   */
-  private int[] toIntArray(List<Integer> list) {
-    int[] ary = new int[list.size()];
-    int index = 0;
-    for (int el : list) ary[index++] = el;
-    return ary;
   }
 }
