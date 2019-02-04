@@ -25,12 +25,15 @@ public class App {
 
     FileLogicImpl fl = new FileLogicImpl(input, output);
     int base = 0;
+    int r = 0;
 
-    for (int n = 0; n < REPEAT_TIME; n++) {
-      int[] ary = fl.read(base, DIVISION_RANGE);
-      QuickSort.quickSort(ary, 0, ary.length - 1);
-      fl.write(ary);
+    while (r < REPEAT_TIME) {
+      int[] partition = fl.partitionRead(base, DIVISION_RANGE);
+      QuickSort.quickSort(partition, 0, partition.length - 1);
+      fl.write(partition);
       base += DIVISION_RANGE;
+
+      r++;
     }
 
     long e = System.currentTimeMillis();

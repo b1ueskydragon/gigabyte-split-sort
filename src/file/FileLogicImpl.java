@@ -18,31 +18,32 @@ public class FileLogicImpl implements FileLogic {
     this.output = output;
   }
 
-  public int[] read(int base, int division) {
-    BufferedReader br = null;
-    List<Integer> list = new ArrayList<>();
+  public int[] partitionRead(int base, int division) {
+    List<Integer> nums = new ArrayList<>();
+    String line;
 
-    String ln;
-
-    try {
-      br = new BufferedReader(new FileReader(new File(this.input)));
-
-      while ((ln = br.readLine()) != null) {
-        int line = Integer.parseInt(ln);
-        if (line <= division + base && base < line) list.add(line);
+    try (BufferedReader br = new BufferedReader(new FileReader(new File(input)))) {
+      while ((line = br.readLine()) != null) {
+        int num = Integer.parseInt(line);
+        if (num <= division + base && base < num) nums.add(num);
       }
-
-    } catch (NumberFormatException | IOException e) {
+    } catch (IOException e) {
       e.printStackTrace();
-    } finally {
-      try {
-        if (br != null) br.close();
-      } catch (IOException e) {
-        e.printStackTrace();
-      }
     }
 
-    return toIntArray(list);
+    return toIntArray(nums);
+  }
+
+  public void write(int[] nums) {
+    // @param true - write continually
+    try (BufferedWriter bw = new BufferedWriter(new FileWriter(new File(output), true))) {
+      for (int num : nums) {
+        bw.write(String.valueOf(num));
+        bw.newLine();
+      }
+    } catch (IOException e) {
+      e.printStackTrace();
+    }
   }
 
   /**
@@ -54,32 +55,7 @@ public class FileLogicImpl implements FileLogic {
   private int[] toIntArray(List<Integer> list) {
     int[] ary = new int[list.size()];
     int index = 0;
-
-    for (int i : list) {
-      ary[index] = i;
-      index++;
-    }
+    for (int el : list) ary[index++] = el;
     return ary;
-  }
-
-  public void write(int[] ary) {
-    BufferedWriter bw = null;
-
-    try {
-      // @param true - write continually
-      bw = new BufferedWriter(new FileWriter(new File(this.output), true));
-      for (int s : ary) {
-        bw.write(Integer.toString(s) + System.getProperty("line.separator"));
-      }
-
-    } catch (IOException e) {
-      e.printStackTrace();
-    } finally {
-      try {
-        if (bw != null) bw.close();
-      } catch (IOException e) {
-        e.printStackTrace();
-      }
-    }
   }
 }
