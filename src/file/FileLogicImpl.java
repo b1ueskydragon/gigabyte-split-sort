@@ -1,5 +1,4 @@
-
-package jp.ma.jang.file;
+package file;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -10,19 +9,16 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-import static jp.ma.jang.util.Utility.*;
-
-public class FileLogic implements FileLogicImpl {
-
+public class FileLogicImpl implements FileLogic {
   private String input;
   private String output;
 
-  public FileLogic(String input, String output) {
+  public FileLogicImpl(String input, String output) {
     this.input = input;
     this.output = output;
   }
 
-  public int[] read(int branch, int division) {
+  public int[] read(int base, int division) {
     BufferedReader br = null;
     List<Integer> list = new ArrayList<>();
 
@@ -33,30 +29,45 @@ public class FileLogic implements FileLogicImpl {
 
       while ((ln = br.readLine()) != null) {
         int line = Integer.parseInt(ln);
-        if (line <= division + branch && branch < line)
-          list.add(line);
+        if (line <= division + base && base < line) list.add(line);
       }
 
     } catch (NumberFormatException | IOException e) {
       e.printStackTrace();
     } finally {
       try {
-        if (br != null)
-          br.close();
+        if (br != null) br.close();
       } catch (IOException e) {
         e.printStackTrace();
       }
     }
 
-    return ConvertIntegerListToAry(list);
+    return toIntArray(list);
+  }
+
+  /**
+   * Integer list to int array
+   *
+   * @param list given list
+   * @return array
+   */
+  private int[] toIntArray(List<Integer> list) {
+    int[] ary = new int[list.size()];
+    int index = 0;
+
+    for (int i : list) {
+      ary[index] = i;
+      index++;
+    }
+    return ary;
   }
 
   public void write(int[] ary) {
     BufferedWriter bw = null;
 
     try {
-      bw = new BufferedWriter(new FileWriter(new File(this.output), true)); // 続けて書き出す
-
+      // @param true - write continually
+      bw = new BufferedWriter(new FileWriter(new File(this.output), true));
       for (int s : ary) {
         bw.write(Integer.toString(s) + System.getProperty("line.separator"));
       }
@@ -65,8 +76,7 @@ public class FileLogic implements FileLogicImpl {
       e.printStackTrace();
     } finally {
       try {
-        if (bw != null)
-          bw.close();
+        if (bw != null) bw.close();
       } catch (IOException e) {
         e.printStackTrace();
       }

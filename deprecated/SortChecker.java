@@ -1,4 +1,4 @@
-package jp.ma.jang.check;
+package deprecated;
 
 
 import java.io.BufferedReader;
@@ -7,8 +7,6 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-
-import static jp.ma.jang.file.FilePath.RESULT_PATH;
 
 /**
  * a[i] より a[i+1] の方が大きい場合のみ, 一個ずつ進めていくアルゴリズム
@@ -33,16 +31,17 @@ public class SortChecker { // TODO 続けて改良する
   }
 
   /**
-   * 走査しながら check する. 未整列の要素が発見次第, 終了する
+   * 走査しながら gigaSortAsc.check する. 未整列の要素が発見次第, 終了する
    */
   private static boolean checkWhileRead() {
+    String res = "INPUT RESULT FILE PATH";
     BufferedReader br = null;
     List<Integer> buff = new ArrayList<>();
     int tmp;
     String ln;
 
     try {
-      br = new BufferedReader(new FileReader(new File(RESULT_PATH)));
+      br = new BufferedReader(new FileReader(new File(res)));
 
       while ((ln = br.readLine()) != null) { // TODO そもそもここを改良
         int line = Integer.parseInt(ln);

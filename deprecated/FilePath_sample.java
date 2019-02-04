@@ -1,4 +1,4 @@
-package jp.ma.jang.file;
+package deprecated;
 
 public class FilePath_sample {
   // パスその①

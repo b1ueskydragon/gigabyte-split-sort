@@ -1,4 +1,4 @@
-package jp.pra;
+package deprecated;
 
 public class QuickSort_ {
   /**
