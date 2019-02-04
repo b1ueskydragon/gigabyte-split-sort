@@ -2,6 +2,9 @@ import check.CheckSortAsc;
 import file.FileLogicImpl;
 import sort.QuickSort;
 
+import java.io.File;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.Scanner;
 
 public class App {
@@ -23,16 +26,18 @@ public class App {
   private static void sortAsc(String input, String output) {
     long s = System.currentTimeMillis();
 
-    FileLogicImpl fl = new FileLogicImpl(input, output);
+    FileLogicImpl fl = new FileLogicImpl();
+    File outputFile = new File(output);
     int base = 0;
     int r = 0;
 
-    while (r < REPEAT_TIME) {
-      int[] partition = fl.partitionRead(base, DIVISION_RANGE);
-      QuickSort.quickSort(partition, 0, partition.length - 1);
-      fl.write(partition);
-      base += DIVISION_RANGE;
+    Path inputPath = Paths.get(input);
 
+    while (r < REPEAT_TIME) {
+      int[] partition = fl.partitionRead(base, DIVISION_RANGE, inputPath);
+      QuickSort.quickSort(partition, 0, partition.length - 1);
+      fl.write(partition, outputFile);
+      base += DIVISION_RANGE;
       r++;
     }
 
