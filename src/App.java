@@ -9,6 +9,10 @@ import java.util.Scanner;
 
 public class App {
 
+  private final static int MAX_NUM = 2_000_000_000; // given
+  private final static int REPEAT_TIME = 10; // TODO split with file length
+  private final static int DIVISION_RANGE = MAX_NUM / REPEAT_TIME;
+
   public static void main(String[] args) {
     String dir = new Scanner(System.in).nextLine();
     String given = dir + "/sort_median.txt";
@@ -18,10 +22,6 @@ public class App {
     sortAsc(given, result);
     checkAsc(result);
   }
-
-  private final static Integer DIVISION_RANGE = 200_000_000;
-
-  private final static Integer REPEAT_TIME = 10;
 
   private static void sortAsc(String input, String output) {
     long s = System.currentTimeMillis();
