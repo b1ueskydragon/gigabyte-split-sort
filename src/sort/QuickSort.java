@@ -12,7 +12,8 @@ public class QuickSort {
   public static void quickSort(int[] ary, int left, int right) {
     int cl = left;
     int cr = right;
-    int center = ary[(cl + cr) / 2];
+    int pivot = cl + (cr - cl) / 2;
+    int center = ary[pivot];
 
     // break a loop if cursor crossed
     while (cl <= cr) {
